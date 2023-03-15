@@ -17,7 +17,7 @@ let products = [
   },
 ];
 
-class ProductRepository {
+class ProductsRepository {
   findAll() {
     return new Promise((resolve) => {
       resolve(products);
@@ -61,11 +61,11 @@ class ProductRepository {
         subcategory,
       };
       products = products.map((product) => {
-        product.id === id ? updatedProduct : product
+        return product.id === id ? updatedProduct : product
       });
       resolve(updatedProduct);
     });
   }
 }
 
-module.exports = new ProductRepository();
+module.exports = new ProductsRepository();
